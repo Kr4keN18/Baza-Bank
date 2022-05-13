@@ -43,9 +43,9 @@
                             <label for="birth_date" class="col-md-4 col-form-label text-md-end">{{ __('Data Urodzenia') }}</label>
 
                             <div class="col-md-6">
-                                <input id="birth_date" type="text" class="form-control @error('birth_date') is-invalid @enderror" name="birth_date" value="{{ old('birth_date') }}" required autocomplete="birth_date" autofocus>
+                                <input id="birth_date" type="text" class="form-control @error('data_urodzenia') is-invalid @enderror" name="birth_date" value="{{ old('birth_date') }}" required autocomplete="birth_date" autofocus>
 
-                                @error('name')
+                                @error('birth_date')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -57,7 +57,7 @@
                             <label for="pesel" class="col-md-4 col-form-label text-md-end">{{ __('PESEL') }}</label>
 
                             <div class="col-md-6">
-                                <input id="pesel" type="text" class="form-control @error('pesel') is-invalid @enderror" name="pesel" value="{{ old('PESEL') }}" required autocomplete="pesel" autofocus>
+                                <input id="pesel" type="text" class="form-control @error('pesel') is-invalid @enderror" name="pesel" value="{{ old('pesel') }}" required autocomplete="pesel" autofocus>
 
                                 @error('pesel')
                                     <span class="invalid-feedback" role="alert">
@@ -71,7 +71,7 @@
                             <label for="gender" class="col-md-4 col-form-label text-md-end">{{ __('Płeć') }}</label>
 
                             <div class="col-md-6">
-                                <input id="gender" type="text" class="form-control @error('gender') is-invalid @enderror" name="gender" value="{{ old('gender') }}" required autocomplete="gender" autofocus>
+                                <input id="gender" type="text" class="form-control @error('plec') is-invalid @enderror" name="gender" value="{{ old('gender') }}" required autocomplete="gender" autofocus>
 
                                 @error('gender')
                                     <span class="invalid-feedback" role="alert">

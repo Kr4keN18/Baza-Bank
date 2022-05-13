@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('waluta', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('nazwa', 20);
             $table->string('symbol', 10);
         });

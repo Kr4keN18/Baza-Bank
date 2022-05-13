@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('kredyt', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('typ', 255);
             $table->integer('ilosc_rat');
             //$table->foreign('klienci_id')->references('id')->on('klienci');

@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('konto_klienta', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->double('saldo');
             $table->integer('numer');
             $table->string('login', 255);

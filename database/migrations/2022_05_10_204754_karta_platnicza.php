@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('karta_platnicza', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('numer', 16);
             $table->string('cvc', 3);
             $table->date('okres_waznosci');
