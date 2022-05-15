@@ -9,7 +9,7 @@ class Kredyt extends Model
 {
     use HasFactory;
 
-    protected $table = 'kredyt';
+    protected $table = 'kredyts';
 
     protected $fillable = [
         'id', 'typ', 'ilosc_rat' 

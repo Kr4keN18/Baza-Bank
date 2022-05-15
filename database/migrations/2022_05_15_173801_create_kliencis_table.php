@@ -13,12 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('kantor', function (Blueprint $table) {
+        Schema::create('kliencis', function (Blueprint $table) {
             $table->increments('id');
-            $table->float('kurs');
+            $table->string('imie', 30);
+            $table->string('nazwisko', 40);
+            $table->string('plec', 10);
+            $table->date('data_urodzenia');
+            $table->string('PESEL', 11);
+            $table->string('adres_zamieszkania');
+            $table->string('email', 255);
+            $table->string('telefon', 9);
             //$table->foreign('pracownicy_id')->references('id')->on('pracownicy');
-            //$table->foreign('waluta_id')->references('id')->on('waluta_id');
-            //$table->foreign('waluta2_id')->references('id')->on('waluta_id');
         });
     }
 
@@ -29,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kantor');
+        Schema::dropIfExists('kliencis');
     }
 };

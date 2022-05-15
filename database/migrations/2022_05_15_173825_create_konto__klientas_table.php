@@ -13,17 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pracownicy', function (Blueprint $table) {
+        Schema::create('konto__klientas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('imie', 30);
-            $table->string('nazwisko', 40);
-            $table->string('plec', 10);
-            $table->text('adres_zamieszkania');
-            $table->string('email', 255);
-            $table->string('telefon', 9);
+            $table->double('saldo');
+            $table->integer('numer');
             $table->string('login', 255);
             $table->string('haslo', 255);
-            //$table->foreign('stanowisko_id')->references('id')->on('stanowisko');
+            //$table->foreign('klienci_id')->references('id')->on('klienci');
         });
     }
 
@@ -34,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pracownicy');
+        Schema::dropIfExists('konto__klientas');
     }
 };

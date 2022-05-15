@@ -9,7 +9,7 @@ class Kantor extends Model
 {
     use HasFactory;
 
-    protected $table = 'kantor';
+    protected $table = 'kantors';
 
     protected $fillable = [
         'id', 'kurs'

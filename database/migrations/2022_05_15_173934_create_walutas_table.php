@@ -13,12 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('kredyt', function (Blueprint $table) {
+        Schema::create('walutas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('typ', 255);
-            $table->integer('ilosc_rat');
-            //$table->foreign('klienci_id')->references('id')->on('klienci');
-            //$table->foreign('pracownicy_id')->references('id')->on('pracownicy');
+            $table->string('nazwa', 20);
+            $table->string('symbol', 10);
         });
     }
 
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kredyt');
+        Schema::dropIfExists('walutas');
     }
 };

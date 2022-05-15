@@ -13,18 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('transakcje', function (Blueprint $table) {
+        Schema::create('kredyts', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nazwa', 255);
             $table->string('typ', 255);
-            $table->string('stan', 20);
-            $table->string('nadawca', 255);
-            $table->string('odbiorca', 255);
-            $table->double('kwota');
-            $table->timestamp('data_wykonania');
-            //$table->foreign('konto_klienta_id')->references('id')->on('konto_klienta');
+            $table->integer('ilosc_rat');
+            //$table->foreign('klienci_id')->references('id')->on('klienci');
             //$table->foreign('pracownicy_id')->references('id')->on('pracownicy');
-            //$table->foreign('kredyt_id')->references('id')->on('kredyt');
         });
     }
 
@@ -35,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('transakcje');
+        Schema::dropIfExists('kredyts');
     }
 };

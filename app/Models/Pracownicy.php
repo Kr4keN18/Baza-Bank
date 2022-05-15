@@ -9,7 +9,7 @@ class Pracownicy extends Model
 {
     use HasFactory;
 
-    protected $table = 'pracownicy';
+    protected $table = 'pracownicies';
 
     protected $fillable = [
         'id', 'imie', 'nazwisko', 'plec', 'adres_zamieszkania', 'email', 'telefon', 'login'

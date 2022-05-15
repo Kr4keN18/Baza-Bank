@@ -13,10 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('waluta', function (Blueprint $table) {
+        Schema::create('karta__platniczas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nazwa', 20);
-            $table->string('symbol', 10);
+            $table->string('numer', 16);
+            $table->string('cvc', 3);
+            $table->date('okres_waznosci');
+            $table->string('nazwa_banku', 10);
+            //$table->foreign('konto_klienta_id')->references('id')->on('konto_klienta');
         });
     }
 
@@ -27,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('waluta');
+        Schema::dropIfExists('karta__platniczas');
     }
 };

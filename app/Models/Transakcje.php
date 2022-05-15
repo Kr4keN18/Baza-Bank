@@ -9,7 +9,7 @@ class Transakcje extends Model
 {
     use HasFactory;
 
-    protected $table = 'transakcje';
+    protected $table = 'transakcjes';
 
     protected $fillable = [
         'id', 'nazwa', 'typ', 'stan', 'nadawca', 'odbiorca', 'kwota', 'data_wykonania'

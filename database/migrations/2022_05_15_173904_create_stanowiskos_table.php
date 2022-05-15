@@ -13,13 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('karta_platnicza', function (Blueprint $table) {
+        Schema::create('stanowiskos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('numer', 16);
-            $table->string('cvc', 3);
-            $table->date('okres_waznosci');
-            $table->string('nazwa_banku', 10);
-            //$table->foreign('konto_klienta_id')->references('id')->on('konto_klienta');
+            $table->string('nazwa', 30);
+            $table->double('pensja');
         });
     }
 
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('karta_platnicza');
+        Schema::dropIfExists('stanowiskos');
     }
 };

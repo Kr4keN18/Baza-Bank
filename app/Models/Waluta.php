@@ -9,7 +9,7 @@ class Waluta extends Model
 {
     use HasFactory;
 
-    protected $table = 'waluta';
+    protected $table = 'walutas';
 
     protected $fillable = [
         'id', 'nazwa', 'symbol'
