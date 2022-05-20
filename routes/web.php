@@ -20,3 +20,27 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/tables', function () {
+    return view('tables');
+});
+
+Route::get('/billing', function () {
+    return view('billing');
+});
+
+Route::get('/virtual-reality', function () {
+    return view('virtual-reality');
+});
+
+Route::get('/rtl', function () {
+    return view('rtl');
+});
+
+Route::get('/notifications', function () {
+    return view('notifications');
+});
+
+Route::get('/profile', function () {
+    return view('profile');
+});
