@@ -20,9 +20,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <title>
-    Material Dashboard 2 by Creative Tim
+    Bank Presto
   </title>
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
@@ -38,11 +37,11 @@
 </head>
 
 <body class="g-sidenav-show bg-gray-200">
-@include("sidebar")
+@include("sidebaradmin")
   <div class="main-content position-relative max-height-vh-100 h-100">
     <!-- Navbar -->
     <div>
-      @include("topbar")
+      @include("topbaradmin")
     </div>
     <!-- End Navbar -->
     <div class="container-fluid px-2 px-md-4">
@@ -52,17 +51,14 @@
       <div class="card card-body mx-3 mx-md-4 mt-n6">
         <div class="row gx-4 mb-2">
           <div class="col-auto">
-            <div class="avatar avatar-xl position-relative">
-              <img src="../assets/img/bruce-mars.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
-            </div>
           </div>
           <div class="col-auto my-auto">
             <div class="h-100">
               <h5 class="mb-1">
-                Imie i nazwisko klienta
+              {{Auth::user()->name}} {{Auth::user()->surname}}
               </h5>
               <p class="mb-0 font-weight-normal text-sm">
-                Stanowisko klienta
+                Administrator Banku
               </p>
             </div>
           </div>
@@ -90,7 +86,7 @@
                 <div class="card-body p-3">
                   <ul class="list-group">
                     <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Imie: </strong>Test</li>
-                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Inazwisko: </strong>Test</li>
+                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Nazwisko: </strong>Test</li>
                     <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Płeć: </strong>male</li>
                     <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Data urodzenia: </strong>Test</li>
                     <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">PESEL: </strong>11111111111</li>

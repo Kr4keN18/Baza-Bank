@@ -50,6 +50,7 @@ Route::get('/profile', function () {
 });
 
 
+
 Route::middleware(['middleware'=>'PreventBackHistory'])->group(function () {
     Auth::routes();
 });
@@ -57,6 +58,8 @@ Route::middleware(['middleware'=>'PreventBackHistory'])->group(function () {
 Route::group(['prefix'=>'admin', 'middleware'=>['isAdmin','auth','PreventBackHistory']], function(){
     Route::get('dashboard',[AdminController::class,'index'])->name('admin.dashboard');
     Route::get('profile',[AdminController::class,'profile'])->name('admin.profile');
+    Route::get('kantoradmin',[AdminController::class,'kantoradmin'])->name('admin.kantoradmin');
+    Route::get('pracownicyadmin',[AdminController::class,'pracownicyadmin'])->name('admin.pracownicyadmin');
     Route::get('settings',[AdminController::class,'settings'])->name('admin.settings');
    
 });
@@ -64,6 +67,10 @@ Route::group(['prefix'=>'admin', 'middleware'=>['isAdmin','auth','PreventBackHis
 Route::group(['prefix'=>'user', 'middleware'=>['isUser','auth','PreventBackHistory']], function(){
 Route::get('dashboard',[UserController::class,'index'])->name('user.dashboard');
 Route::get('profile',[UserController::class,'profile'])->name('user.profile');
-Route::get('settings',[UserController::class,'settings'])->name('user.settings');
+Route::get('kredyt',[UserController::class,'kredyt'])->name('user.kredyt');
+Route::get('danekonta',[UserController::class,'danekonta'])->name('user.danekonta');
+Route::get('przelewy',[UserController::class,'przelewy'])->name('user.przelewy');
+Route::get('kantoruser',[UserController::class,'kantoruser'])->name('user.kantoruser');
+Route::get('powiadomienia',[UserController::class,'powiadomienia'])->name('user.powiadomienia');
 
 });

@@ -14,7 +14,26 @@ class UserController extends Controller
        function profile(){
            return view('dashboards.users.profile');
        }
-       function settings(){
-           return view('dashboards.users.settings');
+       function kredyt(){
+           return view('dashboards.users.kredyt');
        }
+
+
+       function danekonta(){
+        return view('dashboards.users.danekonta');
+    }
+       
+
+    function kantoruser(){
+        return view('dashboards.users.kantoruser');
+    }
+
+    function przelewy(){
+        return view('dashboards.users.przelewy');
+    }
+       
+    function powiadomienia(){
+        return view('dashboards.users.powiadomienia');
+    }
+       
 }

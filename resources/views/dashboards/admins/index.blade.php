@@ -36,11 +36,11 @@
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
-  @include("sidebar")
+  @include("sidebaradmin")
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
     <!-- Navbar -->
     <div>
-      @include("topbar")
+      @include("topbaradmin")
     </div>
     <!-- End Navbar -->
     <div class="container-fluid py-4">

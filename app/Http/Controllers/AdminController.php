@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+    
     function index(){
 
         return view('dashboards.admins.index');
@@ -17,4 +18,17 @@ class AdminController extends Controller
        function settings(){
            return view('dashboards.admins.settings');
        }
+
+       function pracownicyadmin(){
+        return view('dashboards.admins.pracownicyadmin');
+    }
+
+    function kantoradmin(){
+        return view('dashboards.admins.kantoradmin');
+    }
+
+
 }
+
+
+
