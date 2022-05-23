@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Pracownicy extends Model
 {
@@ -18,4 +19,9 @@ class Pracownicy extends Model
     protected $hidden = [
         'haslo'
     ];
+
+    public function stanowisko() :BelongsTo
+    {
+        return $this->BelongsTo(stanowisko::class);
+    }
 }
