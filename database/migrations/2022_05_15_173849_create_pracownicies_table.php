@@ -23,7 +23,6 @@ return new class extends Migration
             $table->string('telefon', 9);
             $table->string('login', 255);
             $table->string('haslo', 255);
-            //$table->foreign('stanowisko_id')->references('id')->on('stanowisko');
         });
     }
 

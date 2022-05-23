@@ -85,14 +85,14 @@
                 </div>
                 <div class="card-body p-3">
                   <ul class="list-group">
-                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Imie: </strong>Test</li>
-                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Nazwisko: </strong>Test</li>
-                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Płeć: </strong>male</li>
-                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Data urodzenia: </strong>Test</li>
-                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">PESEL: </strong>11111111111</li>
-                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Adres zamieszkania: </strong>testowyadres</li>
-                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Email: </strong>test@test.pl</li>
-                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Telefon komórkowy: </strong>123456789</li>
+                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Imie: </strong>{{Auth::user()->name}}</li>
+                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Nazwisko: </strong>{{Auth::user()->surname}}</li>
+                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Płeć: </strong>{{Auth::user()->gender}}</li>
+                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Data urodzenia: </strong>{{Auth::user()->birth_date}}</li>
+                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">PESEL: </strong>{{Auth::user()->pesel}}</li>
+                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Adres zamieszkania: </strong>{{Auth::user()->adres_zamieszkania}}</li>
+                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Email: </strong>{{Auth::user()->email}}</li>
+                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Telefon komórkowy: </strong>{{Auth::user()->phone_no}}</li>
                   </ul>
                 </div>
               </div>
