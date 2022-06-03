@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\EmployeeController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -73,4 +74,9 @@ Route::get('przelewy',[UserController::class,'przelewy'])->name('user.przelewy')
 Route::get('kantoruser',[UserController::class,'kantoruser'])->name('user.kantoruser');
 Route::get('powiadomienia',[UserController::class,'powiadomienia'])->name('user.powiadomienia');
 
+});
+
+Route::group(['prefix'=>'employee', 'middleware'=>['isEmployee','auth','PreventBackHistory']], function(){
+    Route::get('dashboard',[EmployeeController::class,'index'])->name('employee.dashboard');
+    Route::get('profile',[EmployeeController::class,'profile'])->name('employee.profile');   
 });

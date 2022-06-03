@@ -17,6 +17,7 @@ return [
         resource_path('views'),
         resource_path('views/dashboards/admins'),
         resource_path('views/dashboards/users'),
+        resource_path('views/dashboards/employee'),
     ],
 
     /*
