@@ -10,7 +10,7 @@
     <div class="collapse navbar-collapse  w-auto  max-height-vh-100" id="sidenav-collapse-main">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link text-white active bg-gradient-primary" href="dashboard">
+          <a class="nav-link text-white {{ (request()->is('user/dashboard')) ? 'active bg-gradient-primary' : '' }}" href="dashboard">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">dashboard</i>
             </div>
@@ -19,7 +19,7 @@
         </li>
         
         <li class="nav-item">
-          <a class="nav-link text-white " href="danekonta">
+          <a class="nav-link text-white {{ (request()->is('user/danekonta')) ? 'active bg-gradient-primary' : '' }}" href="danekonta">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">receipt_long</i>
             </div>
@@ -27,7 +27,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="kantoruser">
+          <a class="nav-link text-white {{ (request()->is('user/kantoruser')) ? 'active bg-gradient-primary' : '' }} " href="kantoruser">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">view_in_ar</i>
             </div>
@@ -35,7 +35,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="przelewy">
+          <a class="nav-link text-white {{ (request()->is('user/przelewy')) ? 'active bg-gradient-primary' : '' }}" href="przelewy">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">format_textdirection_r_to_l</i>
             </div>
@@ -43,7 +43,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="kredyt">
+          <a class="nav-link text-white {{ (request()->is('user/kredyt')) ? 'active active bg-gradient-primary' : '' }}" href="kredyt">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">notifications</i>
             </div>
@@ -54,7 +54,7 @@
           <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Dane Osobowe</h6>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="profile">
+          <a class="nav-link text-white {{ (request()->is('user/profile')) ? 'active active bg-gradient-primary' : '' }}" href="profile">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">person</i>
             </div>
