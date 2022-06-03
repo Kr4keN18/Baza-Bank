@@ -14,4 +14,6 @@ class Klienci extends Model
     protected $fillable = [
         'id', 'imie', 'nazwisko', 'plec', 'data_urodzenia', 'PESEL', 'adres_zamieszkania', 'email', 'telefon'
     ];
+
+    public $timestamps = false;
 }

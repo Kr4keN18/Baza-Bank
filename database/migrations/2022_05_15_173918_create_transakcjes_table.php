@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('transakcjes', function (Blueprint $table) {
             $table->id();
-            $table->string('nazwa');
-            $table->string('typ');
-            $table->string('stan');
-            $table->string('nadawca');
-            $table->string('odbiorca');
+            $table->string('nazwa', 255);
+            $table->string('typ', 255);
+            $table->string('stan', 255);
+            $table->string('nadawca', 255);
+            $table->string('odbiorca', 255);
             $table->float('kwota');
             $table->date('data_wykonania');
         });
