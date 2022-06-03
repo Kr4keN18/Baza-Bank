@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class AdminController extends Controller
 {
@@ -20,12 +21,22 @@ class AdminController extends Controller
        }
 
        function pracownicyadmin(){
-        return view('dashboards.admins.pracownicyadmin');
+        return view('dashboards.admins.pracownicyadmin', [
+        'users' => User::all()
+       ]);
     }
 
     function kantoradmin(){
         return view('dashboards.admins.kantoradmin');
     }
+
+    //
+    //function tabela(){
+     //   return view('dashboards.admins.tabela', [
+      //      'users' => User::all()
+       // ]);
+    //}
+
 
 
 }

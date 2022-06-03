@@ -62,6 +62,8 @@ Route::group(['prefix'=>'admin', 'middleware'=>['isAdmin','auth','PreventBackHis
     Route::get('kantoradmin',[AdminController::class,'kantoradmin'])->name('admin.kantoradmin');
     Route::get('pracownicyadmin',[AdminController::class,'pracownicyadmin'])->name('admin.pracownicyadmin');
     Route::get('settings',[AdminController::class,'settings'])->name('admin.settings');
+
+    Route::get('tabela',[AdminController::class,'tabela'])->name('admin.tabela');
    
 });
 
