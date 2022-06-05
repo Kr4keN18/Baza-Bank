@@ -61,7 +61,7 @@
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Imie</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Nazwisko</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Stanowisko</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Data_zatrudnienia</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Pensja</th>
                       <th class="text-secondary opacity-7"></th>
                     </tr>
                   </thead>

@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Auth;
+use App\Models\Pracownicy;
+use App\Models\stanowisko;
 
 class AdminController extends Controller
 {
@@ -22,7 +25,8 @@ class AdminController extends Controller
 
        function pracownicyadmin(){
         return view('dashboards.admins.pracownicyadmin', [
-        'users' => User::all()
+        'pracownicies' => Pracownicy::all(),
+        'stanowiskos' => stanowisko::all()
        ]);
     }
 
