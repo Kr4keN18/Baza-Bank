@@ -13,12 +13,10 @@ class Pracownicy extends Model
     protected $table = 'pracownicies';
 
     protected $fillable = [
-        'id', 'imie', 'nazwisko', 'plec', 'adres_zamieszkania', 'email', 'telefon', 'login'
+        'id', 'imie', 'nazwisko', 'plec', 'adres_zamieszkania', 'email', 'telefon'
     ];
 
-    protected $hidden = [
-        'haslo'
-    ];
+  
 
     public function stanowisko() :BelongsTo
     {

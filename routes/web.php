@@ -76,7 +76,7 @@ Route::get('przelewy',[UserController::class,'przelewy'])->name('user.przelewy')
 Route::get('kantoruser',[UserController::class,'kantoruser'])->name('user.kantoruser');
 Route::get('powiadomienia',[UserController::class,'powiadomienia'])->name('user.powiadomienia');
 
-Route::get('shiftdata',[UserController::class,'shiftdata'])->name('user.dashboard');
+Route::get('shiftdata',[UserController::class,'shiftdata']);
 
 });
 

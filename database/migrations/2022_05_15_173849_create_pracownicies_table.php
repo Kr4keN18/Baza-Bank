@@ -21,8 +21,6 @@ return new class extends Migration
             $table->text('adres_zamieszkania');
             $table->string('email', 255);
             $table->string('telefon', 9);
-            $table->string('login', 255);
-            $table->string('haslo', 255);
         });
     }
 

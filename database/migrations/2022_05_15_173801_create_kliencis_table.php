@@ -23,7 +23,8 @@ return new class extends Migration
             $table->string('adres_zamieszkania');
             $table->string('email', 255);
             $table->string('telefon', 9);
-            //$table->foreign('pracownicy_id')->references('id')->on('pracownicy');
+            
+            
         });
     }
 

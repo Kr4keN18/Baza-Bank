@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use App\Models\Klienci;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\hasOne;
 
 class Konto_Klienta extends Model
 {
@@ -12,10 +14,15 @@ class Konto_Klienta extends Model
     protected $table = 'konto_klienta';
 
     protected $fillable = [
-        'id', 'saldo', 'numer', 'login'
+        'id', 'saldo', 'numer', 'iban', 'swift'
     ];
 
-    protected $hidden = [
-        'haslo'
-    ];
+
+
+    public function kliencis(): hasOne
+    {
+        return $this->hasOne(Klienci::class);
+    }
+
+   
 }
