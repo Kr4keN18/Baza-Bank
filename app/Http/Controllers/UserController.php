@@ -41,7 +41,7 @@ class UserController extends Controller
 
     public function shiftdata(){
         $users = User::get();
-        foreach ($users as $key => $value) {
+        foreach ($users as $key => $value){
             Klienci::create([
             'imie'=>$value->name,
             'nazwisko'=>$value->surname,
@@ -53,5 +53,15 @@ class UserController extends Controller
             'telefon'=>$value->phone_no,
             ]);
             }
+            
+
 }
+
+
+function transakcje(){
+    return view('dashboards.users.transakcje');
+}
+
+
+
 }

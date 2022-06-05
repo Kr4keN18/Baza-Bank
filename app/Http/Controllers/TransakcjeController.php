@@ -36,7 +36,7 @@ class TransakcjeController extends Controller
                 ->paginate(20);
             }
 
-            return view('pages.card_transactions', compact('transakcje', 'karta_platnicza'));
+            return view('user.transakcje', compact('transakcje', 'karta_platnicza'));
         }else{
             return redirect()->route('cards')->with('błąd', 'Nie można znaleźć karty. Spróbuj ponownie');
         }
