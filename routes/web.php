@@ -78,7 +78,7 @@ Route::get('powiadomienia',[UserController::class,'powiadomienia'])->name('user.
 
 Route::get('shiftdata',[UserController::class,'shiftdata']);
 
-Route::post('transakcje',[UserController::class,'transakcje'])->name('user.transakcje');
+Route::get('transakcje',[UserController::class,'transakcje'])->name('user.transakcje');
 
 });
 

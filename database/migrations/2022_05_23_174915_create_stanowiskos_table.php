@@ -21,7 +21,7 @@ return new class extends Migration
 
 
         Schema::table('pracownicies', function (Blueprint $table) {
-            $table->unsignedBigInteger('stanowisko_id')->after('haslo');
+            $table->unsignedBigInteger('stanowisko_id')->after('telefon');
             $table->foreign('stanowisko_id')->references('id')->on('stanowiskos');
         });
 
