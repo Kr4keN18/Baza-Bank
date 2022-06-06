@@ -11,7 +11,7 @@ class Konto_Klienta extends Model
 {
     use HasFactory;
 
-    protected $table = 'konto_klienta';
+    protected $table = 'konto_klientas';
 
     protected $fillable = [
         'id', 'saldo', 'numer', 'iban', 'swift'

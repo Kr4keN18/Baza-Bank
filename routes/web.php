@@ -80,6 +80,8 @@ Route::get('shiftdata',[UserController::class,'shiftdata']);
 
 Route::post('transakcje',[UserController::class,'transakcje'])->name('user.transakcje');
 
+Route::get('stankonta',[UserController::class,'stankonta'])->name('user.stankonta');
+
 });
 
 Route::group(['prefix'=>'employee', 'middleware'=>['isEmployee','auth','PreventBackHistory']], function(){

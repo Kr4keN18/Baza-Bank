@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Klienci;
+use App\Models\Konto_Klienta;
+use Auth;
 
 class UserController extends Controller
 {
@@ -63,5 +65,12 @@ function transakcje(){
 }
 
 
+function stankonta(){
+    return view('dashboards.users.danekonta', [
+    'kliencis' => Klienci::all(),
+    'konta' => Konto_Klienta::all()
+   ]);
+
+}
 
 }
