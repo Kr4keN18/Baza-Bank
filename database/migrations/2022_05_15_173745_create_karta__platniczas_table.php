@@ -14,13 +14,19 @@ return new class extends Migration
     public function up()
     {
         Schema::create('karta__platniczas', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id('id');
             $table->string('numer', 16);
             $table->string('cvc', 3);
             $table->date('okres_waznosci');
             $table->string('nazwa_banku', 10);
-            //$table->foreign('konto_klienta_id')->references('id')->on('konto_klienta');
         });
+
+
+       
+
+
+
+
     }
 
     /**

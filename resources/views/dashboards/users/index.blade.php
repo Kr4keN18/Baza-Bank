@@ -160,7 +160,7 @@
 
                             
                                 <input id="klient_id" type="text" class="form-control @error('klient_id') is-invalid @enderror" name="klient_id" value="{{ Auth()->user()->id }}" required autocomplete="klient_id" autofocus hidden>
-
+  
                                
                         
                         

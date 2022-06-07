@@ -76,7 +76,7 @@
   <div style="height:1000px; width:400px; margin:200px auto;">
       <table id="home">
       <tr>
-          <th>Konto zostało poprawnie zarejestrowane</th>
+          <th>Konto zostało pomyślnie zarejestrowane</th>
       </tr>
       </table>
 </div>

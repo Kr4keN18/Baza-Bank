@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Klienci;
 use App\Models\Konto_Klienta;
+use App\Models\Karta_Platnicza;
 use Auth;
 
 class UserController extends Controller
@@ -78,7 +79,8 @@ function transakcje(){
 function stankonta(){
     return view('dashboards.users.danekonta', [
     'kliencis' => Klienci::all(),
-    'konta' => Konto_Klienta::all()
+    'konta' => Konto_Klienta::all(),
+    'kartas' => Karta_Platnicza::all()
    ]);
 
 }

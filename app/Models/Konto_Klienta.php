@@ -6,6 +6,7 @@ use App\Models\Klienci;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\hasOne;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Konto_Klienta extends Model
 {
@@ -23,6 +24,13 @@ class Konto_Klienta extends Model
     {
         return $this->hasOne(Klienci::class);
     }
+
+
+    public function kartaklient() :BelongsTo
+    {
+        return $this->belongsTo(Karta_Platnicza::class);
+    }
+
 
    
 }

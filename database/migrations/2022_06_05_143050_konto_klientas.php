@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id('id');
             $table->double('saldo');
             $table->string('numer');
-            $table->string('iban', 11);
+            $table->string('iban', 30);
             $table->string('swift', 30);
         });
 
@@ -26,7 +26,10 @@ return new class extends Migration
             $table->foreign('konto_id')->references('id')->on('konto_klientas');
         });
 
-
+        Schema::table('konto_klientas', function (Blueprint $table) {
+            $table->unsignedBigInteger('karta_id');
+            $table->foreign('karta_id')->references('id')->on('karta__platniczas');
+        });
 
     }
 
