@@ -75,12 +75,17 @@ Route::get('danekonta',[UserController::class,'danekonta'])->name('user.danekont
 Route::get('przelewy',[UserController::class,'przelewy'])->name('user.przelewy');
 Route::get('kantoruser',[UserController::class,'kantoruser'])->name('user.kantoruser');
 Route::get('powiadomienia',[UserController::class,'powiadomienia'])->name('user.powiadomienia');
+Route::post('dashboard',[UserController::class,'store']);
 
 Route::get('shiftdata',[UserController::class,'shiftdata']);
 
 Route::post('transakcje',[UserController::class,'transakcje'])->name('user.transakcje');
 
 Route::get('stankonta',[UserController::class,'stankonta'])->name('user.stankonta');
+
+Route::get('przelewlista',[UserController::class,'przelewlista'])->name('user.przelewlista');
+Route::get('przelewlista/{klient}/przelew',[UserController::class,'przelew']);
+Route::get('przelewlista/{klient}',[UserController::class,'update']);
 
 });
 

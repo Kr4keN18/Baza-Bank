@@ -46,6 +46,8 @@
     </div>
     <!-- End Navbar -->
     <div class="container-fluid px-2 px-md-4">
+      
+
       <div class="page-header min-height-300 border-radius-xl mt-4" style="background-image: url('https://images.unsplash.com/photo-1531512073830-ba890ca4eba2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');">
         <span class="mask  bg-gradient-primary  opacity-6"></span>
       </div>
@@ -61,11 +63,13 @@
           <div class="col-auto my-auto">
             <div class="h-100">
               <h5 class="mb-1">
-              {{Auth::user()->name}} {{Auth::user()->surname}}
+              @foreach ($klienci as $klient)
+              @if(Auth()->user()->id == $klient->klient_id)
+              {{$klient->imie}} {{$klient->nazwisko}}
+              @endif
+              @endforeach
               </h5>
-              <p class="mb-0 font-weight-normal text-sm">
-                Stanowisko klienta
-              </p>
+              
             </div>
           </div>
           <div class="col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
@@ -91,14 +95,20 @@
                 </div>
                 <div class="card-body p-3">
                   <ul class="list-group">
-                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Imie: </strong>{{Auth::user()->name}}</li>
-                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Nazwisko: </strong>{{Auth::user()->surname}}</li>
-                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Płeć: </strong>{{Auth::user()->gender}}</li>
-                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Data urodzenia: </strong>{{Auth::user()->birth_date}}</li>
-                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">PESEL: </strong>{{Auth::user()->pesel}}</li>
-                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Adres zamieszkania: </strong>{{Auth::user()->adres_zamieszkania}}</li>
+                  @foreach ($klienci as $klient)
+                  @if(Auth()->user()->id == $klient->klient_id)
+              
+                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Imie: </strong>{{$klient->imie}}</li>
+                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Nazwisko: </strong>{{$klient->nazwisko}}</li>
+                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Płeć: </strong>{{$klient->plec}}</li>
+                    
+                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">PESEL: </strong>{{$klient->PESEL}}</li>
+                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Adres zamieszkania: </strong>{{$klient->adres_zamieszkania}}</li>
                     <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Email: </strong>{{Auth::user()->email}}</li>
-                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Telefon komórkowy: </strong>{{Auth::user()->phone_no}}</li>
+                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Telefon komórkowy: </strong>{{$klient->telefon}}</li>
+                  
+                    @endif
+              @endforeach
                   </ul>
                 </div>
               </div>
@@ -187,6 +197,7 @@
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/material-dashboard.min.js?v=3.0.2"></script>
+  
 </body>
 
 </html>

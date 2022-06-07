@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Klienci;
+use Illuminate\Database\Eloquent\Relations\hasOne;
 
 class User extends Authenticatable
 {
@@ -18,13 +20,6 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'surname',
-        'birth_date',
-        'pesel',
-        'gender',
-        'adres_zamieszkania',
-        'phone_no',
         'email',
         'role',
         'password',
@@ -48,4 +43,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function klienci() :BelongsTo
+    {
+        return $this->belongsTo(Klienci::class);
+    }
+
+
+
 }

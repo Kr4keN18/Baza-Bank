@@ -26,24 +26,16 @@
                                     <input type="text" name="deposit" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp2">
                                     <input type="hidden" name="type" value="1" />
                                 </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Typ przelewu</label>
-                                    <input type="text" name="withdraw" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                                    <input type="hidden" name="type" value="0" />
-                                </div>
+                               
                                 <div class="form-group">
                                     <label for="exampleInputEmail2">Kwota</label>
-                                    <input type="text" name="deposit" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp2">
-                                    <input type="hidden" name="type" value="1" />
+                                    <input type="text" name="saldo" class="form-control" id="saldo" aria-describedby="emailHelp2">
+                                    <input type="text" name="saldo" class="form-control" value="" id="saldo" aria-describedby="emailHelp2" hidden>
                                 </div>
+                                
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Odbiorca</label>
-                                    <input type="text" name="withdraw" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                                    <input type="hidden" name="type" value="0" />
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Numer Konta</label>
-                                    <input type="text" name="withdraw" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                    <label for="exampleInputEmail1">Dane klienta</label>
+                                    <input type="text" name="numer" class="form-control" id="numer" aria-describedby="emailHelp">
                                     <input type="hidden" name="type" value="0" />
                                     <button type="submit" class="btn btn-primary">Potwierdź</button>
                                 </div>

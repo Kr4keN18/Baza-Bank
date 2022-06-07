@@ -58,7 +58,7 @@
               {{Auth::user()->name}} {{Auth::user()->surname}}
               </h5>
               <p class="mb-0 font-weight-normal text-sm">
-                Administrator Banku
+                Pracownik
               </p>
             </div>
           </div>

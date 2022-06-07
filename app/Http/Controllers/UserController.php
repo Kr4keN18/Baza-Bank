@@ -16,8 +16,11 @@ class UserController extends Controller
        }
     
        function profile(){
-           return view('dashboards.users.profile');
-       }
+           return view('dashboards.users.profile', [
+           'klienci' => Klienci::all()
+           ]);
+        }
+
        function kredyt(){
            return view('dashboards.users.kredyt');
        }
@@ -39,7 +42,14 @@ class UserController extends Controller
     function powiadomienia(){
         return view('dashboards.users.powiadomienia');
     }
-       
+     
+    function przelewlista(){
+        return view('dashboards.users.przelewlista', [
+        'kliencis' => Klienci::all(),
+        'konta' => Konto_Klienta::all()
+       ]);
+    }
+
 
     public function shiftdata(){
         $users = User::get();
@@ -48,7 +58,7 @@ class UserController extends Controller
             'imie'=>$value->name,
             'nazwisko'=>$value->surname,
             'plec'=>$value->gender,
-            'data_urodzenia'=>$value->birth_date,
+            //'data_urodzenia'=>$value->birth_date,
             'PESEL'=>$value->pesel,
             'adres_zamieszkania'=>$value->adres_zamieszkania,
             'email'=>$value->email,
@@ -72,5 +82,82 @@ function stankonta(){
    ]);
 
 }
+
+public function create(array $data)
+{
+  
+}
+
+public function store(Request $request)
+    {
+        request()->validate([
+            'imie' => 'required',
+            'nazwisko' => 'required',
+            'plec' => 'required',
+            //'data_urodzenia' => 'required',
+            'PESEL' => 'required',
+            'adres_zamieszkania' => 'required',
+            'telefon' => 'required',
+            'klient_id'=>'required'
+            
+        ]);
+
+        Klienci::create([
+            'imie' => request('imie'),
+            'nazwisko' => request('nazwisko'),
+            'plec' => request('plec'),
+            //'data_urodzenia' => request('data_urodzenia'),
+            'PESEL' => request('PESEL'),
+            'adres_zamieszkania' => request('adres_zamieszkania'),
+            'telefon' => request('telefon'),
+            'klient_id' => request('klient_id')
+
+        ]);
+
+        return redirect('/user/dashboard');
+    }
+
+
+    function przelew(){
+        return view('dashboards.users.transakcje', [
+        'kliencis' => Klienci::all(),
+        'konta' => Konto_Klienta::all()
+       ]);
+    }
+
+
+
+    public function update(Request $request, Konto_Klienta $konto)
+    {
+        request()->validate([
+            'saldo' => 'required',
+            'numer' => 'required',
+            'iban' => 'required',
+            'swift' => 'required',
+        ]);
+
+        $konto->update([
+            'saldo' => request('saldo'),
+            'numer' => request('numer'),
+            'iban' => request('iban'),
+            'swift' => request('swift'),
+        ]);
+
+        return redirect('/user/przelewylista');
+    }
+
+
+    public function edit(Konto_Klienta $konto)
+    {
+        $users = User::all();
+        $saldo = Konto_Klienta::all();
+
+        return view('dashboards.users.przelewlista',compact('users','saldo'));
+    }
+
+
+
+
+
 
 }

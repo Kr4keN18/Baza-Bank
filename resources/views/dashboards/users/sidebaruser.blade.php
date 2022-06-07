@@ -35,7 +35,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white {{ (request()->is('user/przelewy')) ? 'active bg-gradient-primary' : '' }}" href="przelewy">
+          <a class="nav-link text-white {{ (request()->is('user/przelewlista')) ? 'active bg-gradient-primary' : '' }}" href="przelewlista">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">format_textdirection_r_to_l</i>
             </div>
@@ -64,9 +64,5 @@
         
       </ul>
     </div>
-    <div class="sidenav-footer position-absolute w-100 bottom-0 ">
-      <div class="mx-3">
-        <div class="btn bg-gradient-primary mt-4 w-100" type="button">Przycisk</a>
-      </div>
-    </div>
+   
   </aside>

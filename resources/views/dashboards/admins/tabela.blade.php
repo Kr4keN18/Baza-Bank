@@ -1,5 +1,6 @@
-@foreach ($stanowiskos as $stanowisko)
 @foreach ($pracownicies as $employee)
+@foreach ($stanowiskos as $stanowisko)
+@if($employee->stanowisko_id == $stanowisko->id)
 <tbody>
                     <tr>
                       <td>
@@ -25,6 +26,6 @@
                         </a>
                       </td>
                     </tr>
-                  
+                  @endif
                 @endforeach
                 @endforeach

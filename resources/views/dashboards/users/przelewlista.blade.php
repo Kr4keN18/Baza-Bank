@@ -6,7 +6,6 @@
 * Product Page: https://www.creative-tim.com/product/material-dashboard
 * Copyright 2022 Creative Tim (https://www.creative-tim.com)
 * Licensed under MIT (https://www.creative-tim.com/license)
-
 * Coded by Creative Tim
 
 =========================================================
@@ -20,6 +19,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+
   <title>
     Bank Presto
   </title>
@@ -36,75 +36,58 @@
   <link id="pagestyle" href="../assets/css/material-dashboard.css?v=3.0.2" rel="stylesheet" />
 </head>
 
-<body class="g-sidenav-show bg-gray-200">
-@include("sidebaradmin")
-  <div class="main-content position-relative max-height-vh-100 h-100">
+<body class="g-sidenav-show  bg-gray-200">
+  @include("sidebaruser")
+  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
     <!-- Navbar -->
     <div>
-      @include("topbaradmin")
+    @include("topbaruser")
     </div>
     <!-- End Navbar -->
-    <div class="container-fluid px-2 px-md-4">
-      <div class="page-header min-height-300 border-radius-xl mt-4" style="background-image: url('https://images.unsplash.com/photo-1531512073830-ba890ca4eba2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');">
-        <span class="mask  bg-gradient-primary  opacity-6"></span>
-      </div>
-      <div class="card card-body mx-3 mx-md-4 mt-n6">
-        <div class="row gx-4 mb-2">
-          <div class="col-auto">
-          </div>
-          <div class="col-auto my-auto">
-            <div class="h-100">
-              <h5 class="mb-1">
-              {{Auth::user()->name}} {{Auth::user()->surname}}
-              </h5>
-              <p class="mb-0 font-weight-normal text-sm">
-                Administrator Banku
-              </p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
-            <div class="nav-wrapper position-relative end-0">
-              
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="row">
-            
-            <div class="col-12 col-xl-4">
-              <div class="card card-plain h-100">
-                <div class="card-header pb-0 p-3">
-                  <div class="row">
-                    <div class="col-md-8 d-flex align-items-center">
-                      <h6 class="mb-0">Dane osobowe</h6>
-                    </div>
-                    <div class="col-md-4 text-end">
+    <div class="container-fluid py-4">
+      <div class="row">
+        <div class="col-12">
+          <div class="card my-4">
+           
+            <div class="card-body px-0 pb-2">
+              <div class="table-responsive p-0">
+                <table>
+              @foreach ($kliencis as $klient)
+              @if(Auth()->user()->id != $klient->id)
+                <tbody>
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">
+                          <div class="d-flex flex-column justify-content-center">
+                            <h6 class="mb-0 text-sm">{{$klient->imie}}</h6>
+                            
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <h6 class="text-xs font-weight-bold mb-0">{{$klient->nazwisko}}</h6>
+                      </td>
                      
-                    </div>
-                  </div>
-                </div>
-                <div class="card-body p-3">
-                  <ul class="list-group">
-                    <!--<li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Imie: </strong>{{Auth::user()->name}}</li>
-                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Nazwisko: </strong>{{Auth::user()->surname}}</li>
-                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Płeć: </strong>{{Auth::user()->gender}}</li>
-                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Data urodzenia: </strong>{{Auth::user()->birth_date}}</li>
-                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">PESEL: </strong>{{Auth::user()->pesel}}</li>
-                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Adres zamieszkania: </strong>{{Auth::user()->adres_zamieszkania}}</li>-->
-                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Email: </strong>{{Auth::user()->email}}</li>
-                    <!--<li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Telefon komórkowy: </strong>{{Auth::user()->phone_no}}</li>-->
-                  </ul>
-                </div>
+                      <td><form action="/user/przelewlista/{{$klient->id}}/przelew"><input class="btn btn-primary" type="submit" value="Przelew"></form></td>
+    
+                    </tr>
+                  @endif
+                @endforeach
+
+</table>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <div class="row">
+        
+      </div>
+      <footer class="footer py-4  ">
+       
+      </footer>
     </div>
-    <footer class="footer py-4  ">
-      
-    </footer>
-  </div>
+  </main>
   <div class="fixed-plugin">
     <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
       <i class="material-icons py-2">settings</i>
@@ -150,6 +133,12 @@
         </div>
         <p class="text-sm d-xl-none d-block mt-2">You can change the sidenav type just on desktop view.</p>
         <!-- Navbar Fixed -->
+        <div class="mt-3 d-flex">
+          <h6 class="mb-0">Navbar Fixed</h6>
+          <div class="form-check form-switch ps-0 ms-auto my-auto">
+            <input class="form-check-input mt-1 ms-auto" type="checkbox" id="navbarFixed" onclick="navbarFixed(this)">
+          </div>
+        </div>
         <hr class="horizontal dark my-3">
         <div class="mt-2 d-flex">
           <h6 class="mb-0">Light / Dark</h6>
@@ -157,7 +146,6 @@
             <input class="form-check-input mt-1 ms-auto" type="checkbox" id="dark-version" onclick="darkMode(this)">
           </div>
         </div>
-        <hr class="horizontal dark my-sm-4">
         
         </div>
       </div>

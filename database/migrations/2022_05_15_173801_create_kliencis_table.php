@@ -18,14 +18,20 @@ return new class extends Migration
             $table->string('imie', 30);
             $table->string('nazwisko', 40);
             $table->string('plec', 10);
-            $table->date('data_urodzenia');
+            //$table->date('data_urodzenia');
             $table->string('PESEL', 11);
             $table->string('adres_zamieszkania');
-            $table->string('email', 255);
             $table->string('telefon', 9);
             
             
         });
+
+
+        Schema::table('kliencis', function (Blueprint $table) {
+            $table->unsignedBigInteger('klient_id');
+            $table->foreign('klient_id')->references('id')->on('users');
+        });
+
     }
 
     /**

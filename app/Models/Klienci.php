@@ -6,6 +6,7 @@ use App\Models\Konto_Klienta;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use App\Models\User;
 
 class Klienci extends Model
 {
@@ -18,17 +19,25 @@ class Klienci extends Model
         'imie',
         'nazwisko',
         'plec',
-        'data_urodzenia',
+        //'data_urodzenia',
         'PESEL',
         'adres_zamieszkania',
         'email',
-        'telefon'
+        'telefon',
+        'klient_id'
     ];
 
     public function kontoklient() :BelongsTo
     {
         return $this->belongsTo(Konto_Klienta::class);
     }
+
+
+    public function klients(): hasOne
+    {
+        return $this->hasOne(User::class);
+    }
+
 
 
     public $timestamps = false;

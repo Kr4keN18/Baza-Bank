@@ -3,28 +3,25 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+
 use Illuminate\Support\Facades\DB;
-use App\Models\Transakcje;
+
 use App\Models\Konto_Klienta;
 use App\Models\User;
 use App\Models\Klienci;
 use Auth;
 
 
-
-
-class TransakcjeController extends Controller
+class PrzelewyController extends Controller
 {
-    //
+    function przelew(){
+        return view('dashboards.users.transakcje', [
+        'kliencis' => Klienci::all(),
+        'konta' => Konto_Klienta::all()
+       ]);
+    }
 
-
-
-function przelew(){
-    return view('dashboards.users.przelewy', [
-    'kliencis' => Klienci::all(),
-    'konta' => Konto_Klienta::all()
-   ]);
-}
 
 
 public function update(Request $request, Konto_Klienta $konto)
@@ -54,6 +51,9 @@ public function update(Request $request, Konto_Klienta $konto)
 
         return view('dashboards.users.przelewlista',compact('max','users','konto'));
     }
+
+
+
 
 
 

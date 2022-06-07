@@ -16,13 +16,13 @@ return new class extends Migration
         Schema::create('konto_klientas', function (Blueprint $table) {
             $table->id('id');
             $table->double('saldo');
-            $table->integer('numer');
-            $table->integer('iban');
-            $table->integer('swift');
+            $table->string('numer');
+            $table->string('iban', 11);
+            $table->string('swift', 30);
         });
 
-        Schema::table('kliencis', function (Blueprint $table) {
-            $table->unsignedBigInteger('konto_id')->after('telefon');
+        Schema::table('konto_klientas', function (Blueprint $table) {
+            $table->unsignedBigInteger('konto_id');
             $table->foreign('konto_id')->references('id')->on('konto_klientas');
         });
 
