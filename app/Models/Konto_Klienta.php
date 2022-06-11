@@ -32,5 +32,5 @@ class Konto_Klienta extends Model
     }
 
 
-   
+    public $timestamps = false;
 }

@@ -62,7 +62,7 @@
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
-                        @include('transakcje')
+                       
 
               </div>
             </div>

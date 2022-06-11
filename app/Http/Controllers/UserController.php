@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Klienci;
 use App\Models\Konto_Klienta;
 use App\Models\Karta_Platnicza;
+use DB;
 use Auth;
 
 class UserController extends Controller
@@ -120,7 +121,18 @@ public function store(Request $request)
     }
 
 
-    function przelew(){
+    function przelew(Request $request){
+       /* 
+        DB::beginTransaction();
+
+           
+            $klient = Konto_Klienta::find($request->get("id"));
+            $klient->saldo=$klient->saldo+200;
+           $klient->push();
+
+        DB::commit();
+        */
+
         return view('dashboards.users.transakcje', [
         'kliencis' => Klienci::all(),
         'konta' => Konto_Klienta::all()
@@ -128,9 +140,9 @@ public function store(Request $request)
     }
 
 
-
     public function update(Request $request, Konto_Klienta $konto)
     {
+        /*
         request()->validate([
             'saldo' => 'required',
             'numer' => 'required',
@@ -144,7 +156,7 @@ public function store(Request $request)
             'iban' => request('iban'),
             'swift' => request('swift'),
         ]);
-
+    */
         return redirect('/user/przelewylista');
     }
 
@@ -158,6 +170,28 @@ public function store(Request $request)
     }
 
 
+    public function store2(Request $request)
+    {
+        request()->validate([
+            'tytul' => 'required',
+            'kwota' => 'required',
+            'nadawca' => 'required',
+            'odbiorca' => 'required',
+            'data_wykonania' => 'required',
+            
+        ]);
+
+        Konto_Klienta::create([
+            'tytul' => request('tytul'),
+            'kwota' => request('kwota'),
+            'nadawca' => request('nadawca'),
+            'odbiorca' => request('odbiorca'),
+            'data_wykonania' => request('data_wykonania'),
+
+        ]);
+
+        return redirect('/user/przelewlista');
+    }
 
 
 

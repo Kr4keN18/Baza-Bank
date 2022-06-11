@@ -9,9 +9,12 @@ class Transakcje extends Model
 {
     use HasFactory;
 
-    protected $table = 'transakcjes';
+    //protected $table = 'transakcjes';
 
     protected $fillable = [
-        'id', 'nazwa', 'typ', 'stan', 'nadawca', 'odbiorca', 'kwota', 'data_wykonania'
+        'id', 'tytul', 'kwota', 'nadawca', 'odbiorca', 'data_wykonania'
     ];
+
+
+    public $timestamps = false;
 }

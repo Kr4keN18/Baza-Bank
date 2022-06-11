@@ -17,42 +17,75 @@ class TransakcjeController extends Controller
 {
     //
 
+public function index()
+{
 
+    $transakcje = Transakcje::all();
 
-function przelew(){
-    return view('dashboards.users.przelewy', [
-    'kliencis' => Klienci::all(),
-    'konta' => Konto_Klienta::all()
-   ]);
+    /*
+    $dane =  DB::table('transakcjes')
+    ->join('kliencis','transakcjes.klient_id', '=', 'kliencis.id')
+    ->select('transakcjes.tytul','transakcjes.kwota','transakcjes.nadawca', 'kliencis.imie', 'kliencis.nazwisko', 'transakcjes.data_wykonania')
+    ->get();
+    */
+
+    return view('dashboards.users.przelewlista', compact('transakcje'));
 }
 
 
+public function create()
+{
+    $klients = Klienci::all();
+
+
+    return view('dashboards.users.transakcje',compact('klients'));
+}
+
+public function store(Request $request)
+    {
+
+        DB::beginTransaction();
+            $dodaj = $request->input('kwota');
+            $nadawca = $request->get('nadawca');
+            $odbiorca = $request->get('odbiorca');
+
+            $kwota = DB::table('konto_klientas')->where('id', $odbiorca)->pluck('saldo');
+
+            DB::update('update konto_klientas set saldo = saldo + ? where id = ?',[$dodaj, $odbiorca]);
+            DB::update('update konto_klientas set saldo = saldo - ? where id = ?',[$dodaj, $nadawca]);
+            //Konto_Klienta::where('id', $odbiorca)->update(['saldo' => $suma]);
+
+        DB::commit();
+
+
+        request()->validate([
+            'tytul' => 'required',
+            'kwota' => 'required',
+            'nadawca' => 'required',
+            'odbiorca' => 'required',
+            'data_wykonania' => 'required',
+        ]);
+
+        Transakcje::create([
+            'tytul' => request('tytul'),
+            'kwota' => request('kwota'),
+            'nadawca' => request('nadawca'),
+            'odbiorca' => request('odbiorca'),
+            'data_wykonania' => request('data_wykonania'),
+        ]);
+
+        return redirect('/user/przelewlista');
+    }
+
 public function update(Request $request, Konto_Klienta $konto)
     {
-        request()->validate([
-            'saldo' => 'required',
-            'numer' => 'required',
-            'iban' => 'required',
-            'swift' => 'required',
-        ]);
-
-        $konto->update([
-            'saldo' => request('saldo'),
-            'numer' => request('numer'),
-            'iban' => request('iban'),
-            'swift' => request('swift'),
-        ]);
-
-        return redirect('/user/przelewylista');
+        //
     }
 
 
-    public function edit(Konto_Klienta $konto)
+    public function edit(Transakcje $transakcje)
     {
-        $users = User::all();
-        $max = DB::table('users')->max('id');
-
-        return view('dashboards.users.przelewlista',compact('max','users','konto'));
+        //
     }
 
 

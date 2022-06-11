@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\TransakcjeController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -79,13 +80,14 @@ Route::post('dashboard',[UserController::class,'store']);
 
 Route::get('shiftdata',[UserController::class,'shiftdata']);
 
-Route::post('transakcje',[UserController::class,'transakcje'])->name('user.transakcje');
+
 
 Route::get('stankonta',[UserController::class,'stankonta'])->name('user.stankonta');
 
-Route::get('przelewlista',[UserController::class,'przelewlista'])->name('user.przelewlista');
-Route::get('przelewlista/{klient}/przelew',[UserController::class,'przelew']);
-Route::get('przelewlista/{klient}',[UserController::class,'update']);
+Route::get('przelewlista',[TransakcjeController::class,'index'])->name('user.przelewlista');
+Route::get('przelewlista/przelew',[TransakcjeController::class,'create']);
+Route::post('przelewlista',[TransakcjeController::class,'store']);
+
 
 });
 

@@ -52,27 +52,38 @@
             <div class="card-body px-0 pb-2">
               <div class="table-responsive p-0">
                 <table>
-              @foreach ($kliencis as $klient)
-              @if(Auth()->user()->id != $klient->id)
+              @foreach ($transakcje as $transakcja)
                 <tbody>
                     <tr>
                       <td>
+                       
                         <div class="d-flex px-2 py-1">
                           <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">{{$klient->imie}}</h6>
+                            <h6 class="mb-0 text-sm"> Tytuł Transakcji: {{$transakcja->tytul}}</h6>
                             
                           </div>
                         </div>
                       </td>
+
                       <td>
-                        <h6 class="text-xs font-weight-bold mb-0">{{$klient->nazwisko}}</h6>
+                        <h6 class="text-xs font-weight-bold mb-0">Kwota: {{$transakcja->kwota}}</h6>
                       </td>
+
+
+                      <td>
+                        <h6 class="text-xs font-weight-bold mb-0">Odbiorca: {{$transakcja->odbiorca}}</h6>
+                      </td>
+                      
+
+                      <td>
+                        <h6 class="text-xs font-weight-bold mb-0">Data Wykonania: {{$transakcja->data_wykonania}}</h6>
+                      </td>
+                      @endforeach
                      
-                      <td><form action="/user/przelewlista/{{$klient->id}}/przelew"><input class="btn btn-primary" type="submit" value="Przelew"></form></td>
+                      <div><form action="/user/przelewlista/przelew"><input class="btn btn-primary" type="submit" value="Nowy przelew"></form></div>
     
                     </tr>
-                  @endif
-                @endforeach
+                
 
 </table>
               </div>
